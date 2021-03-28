@@ -1,25 +1,31 @@
+setwd('C:/Users/supta/Documents')
+##
+## I simply set the input x as a matrix
+## and then set the solved value "s" as a null
+## then I changed every reference to "mean" to "solve"
 makeCacheMatrix <- function(x = matrix(sample(1:100,9),3,3)) {
-  ss <- NULL
+  s <- NULL
   set <- function(y) {
     x <<- y
-    ss <<- NULL
+    s <<- NULL
   }
   get <- function() x
-  setsolve <- function(solve) ss <<- solve
-  getsolve <- function() ss
+  setsolve <- function(solve) s <<- solve
+  getsolve <- function() s
   list(set = set, get = get,
        setsolve = setsolve,
        getsolve = getsolve)
 }
-
+##
+## Changed "mean" to "solve" and "m" to "s"
 cacheSolve <- function(x, ...) {
-  ss <- x$getsolve()
-  if(!is.null(ss)) {
+  s <- x$getsolve()
+  if(!is.null(s)) {
     message("getting inversed matrix")
-    return(ss)
+    return(s)
   }
   data <- x$get()
-  ss <- solve(data, ...)
-  x$setsolve(ss)
-  ss
+  s <- solve(data, ...)
+  x$setsolve(s)
+  s
 }
