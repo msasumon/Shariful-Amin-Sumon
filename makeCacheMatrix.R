@@ -1,3 +1,4 @@
+## Write a short comment describing this function
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {
@@ -9,7 +10,7 @@ makeCacheMatrix <- function(x = matrix()) {
   getInverse <- function() {inv}
   list(set = set, get = get,setInverse = setInverse,getInverse = getInverse)
 }
-
+## Write a short comment describing this function
 cacheSolve <- function(x, ...) {
   inv <- x$getsolve()
   if(!is.null(inv)) {
@@ -21,3 +22,4 @@ cacheSolve <- function(x, ...) {
   x$setInv(inv)
   inv
 }
+# data <- matrix(c(1, 1, 4, 0, 3, 1, 4, 4, 0), nrow=3, ncol=3)
